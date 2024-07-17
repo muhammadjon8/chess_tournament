@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import * as cookieParser from 'cookie-parser';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as bodyParser from 'body-parser';
 
 async function start() {
   const PORT = process.env.PORT || 3030;
@@ -11,7 +12,7 @@ async function start() {
   app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());
   app.use(cookieParser());
-
+  app.use(bodyParser.json());
   const config = new DocumentBuilder()
     .setTitle('Chess Tournament')
     .setDescription('Manage your chess tournament with this website')

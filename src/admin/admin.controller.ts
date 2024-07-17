@@ -16,16 +16,14 @@ import { ApiTags } from '@nestjs/swagger';
 import { Cookiegetter } from '../decorators/cookie_getter.decorator';
 import { creatorGuard } from '../guards/admin.creator.guard';
 import { AdminGuard } from '../guards/admin.guard';
-import { SelfAdminGuard } from '../guards/self.admin.guard';
 
 @ApiTags('admin')
 @Controller('admin')
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
-  // @UseGuards(creatorGuard)
-  // @UseGuards(SelfAdminGuard)
-  // @UseGuards(AdminGuard)
+  @UseGuards(creatorGuard)
+  @UseGuards(AdminGuard)
   @Post()
   create(@Body() createAdminDto: CreateAdminDto) {
     return this.adminService.create(createAdminDto);

@@ -1,17 +1,17 @@
 POST http://localhost:3000/api/admin
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjp0cnVlLCJpYXQiOjE3MjEyNTA2ODUsImV4cCI6MTcyMTMwNDY4NX0.uAM-o6qCJOSyjYLETMer8OvoxID3yu9MHaPRGqmIIaY
 
 {
-    "name": "admin",
-    "password": "secret",
-    "confirm_password": "secret",
-    "phone": "+998901006706"
+    "name": "newAdmin",
+    "password": "sirli",
+    "confirm_password": "sirli",
+    "phone": "+998901006707"
 }
 
 ###
 POST http://localhost:3000/api/admin/login
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNfYWN0aXZlIjp0cnVlLCJpc19jcmVhdG9yIjpmYWxzZSwiaWF0IjoxNzIxMjUwMTIzLCJleHAiOjE3MjEzMDQxMjN9.UWkZFhwO0kiXqJhgqXiqTFJLfakObNwP7ThnY9Bgh2I
 
 {
     "name": "admin",

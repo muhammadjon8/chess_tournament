@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/admin
+Content-Type: application/json
+
+{
+    "name": "admin",
+    "password": "secret",
+    "confirm_password": "secret",
+    "phone": "+998901006706"
+}

@@ -23,9 +23,9 @@ import { SelfAdminGuard } from '../guards/self.admin.guard';
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
-  @UseGuards(creatorGuard)
-  @UseGuards(SelfAdminGuard)
-  @UseGuards(AdminGuard)
+  // @UseGuards(creatorGuard)
+  // @UseGuards(SelfAdminGuard)
+  // @UseGuards(AdminGuard)
   @Post()
   create(@Body() createAdminDto: CreateAdminDto) {
     return this.adminService.create(createAdminDto);

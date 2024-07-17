@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Admin } from './admin/entities/admin.entity';
+import { ParticipantModule } from './participant/participant.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
@@ -12,10 +15,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
-      entities: [],
+      entities: [Admin],
       synchronize: true,
       logging: false,
     }),
+    ParticipantModule,
+    AdminModule,
   ],
   controllers: [],
   providers: [],

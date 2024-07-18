@@ -1,0 +1,44 @@
+POST http://localhost:3000/api/participant/register
+Content-Type: application/json
+
+{
+    "name": "Hello World",
+    "age": 12,
+    "rating": 250,
+    "country": "France",
+    "tournament_id": 1,
+    "phone": "+998911234381",
+    "password": "qwerty"
+}
+###
+
+POST http://localhost:3000/api/participant/login
+Content-Type: application/json
+
+{
+    "phone": "+998901234568",
+    "password": "qwerty"
+}
+###
+
+GET http://localhost:3000/api/participant
+
+###
+
+GET http://localhost:3000/api/participant/1
+###
+ 
+PATCH http://localhost:3000/api/participant/1
+Content-Type: application/json
+
+{
+    "name": "Alice",
+    "age": 23,
+    "rating": 250,
+    "country": "France",
+    "tournament_id": 1
+}
+
+###
+
+DELETE http://localhost:3000/api/participant/1

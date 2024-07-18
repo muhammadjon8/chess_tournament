@@ -4,20 +4,18 @@ import { Repository } from 'typeorm';
 import { Tournament } from './entities/tournament.entity'; // Assuming you have a Tournament entity
 import { CreateTournamentDto } from './dto/create-tournament.dto';
 import { UpdateTournamentDto } from './dto/update-tournament.dto';
-import { Participant } from '../participant/entities/participant.entity';
 
 @Injectable()
 export class TournamentService {
   constructor(
     @InjectRepository(Tournament)
     private readonly tournamentRepository: Repository<Tournament>,
-    @InjectRepository(Participant)
-    private readonly participantRepo: Repository<Participant>,
   ) {}
 
   async create(createTournamentDto: CreateTournamentDto) {
     try {
-      const tournament = this.tournamentRepository.create(createTournamentDto);
+      const tournament =
+        this.tournamentRepository.create(createTournamentDto);
       return this.tournamentRepository.save(tournament);
     } catch (e) {
       return { error: e.message };
@@ -25,11 +23,6 @@ export class TournamentService {
   }
 
   async findAll() {
-    try {
-      
-    } catch (error) {
-      throw new NotFoundException('Trouble finding tournaments');
-    }
     return this.tournamentRepository.find();
   }
 

@@ -18,21 +18,6 @@ export class Participant {
   country: string;
 
   @Column()
-  tournament_id: number;
-
-  @Column({ nullable: true, default: 0 })
-  score: number;
-
-  @Column({ nullable: true, default: 0 })
-  wins: number;
-
-  @Column({ nullable: true, default: 0 })
-  losses: number;
-
-  @Column({ nullable: true, default: 0 })
-  draws: number;
-
-  @Column()
   password: string;
 
   @Column({unique: true})

@@ -6,6 +6,8 @@ import { ParticipantModule } from './participant/participant.module';
 import { AdminModule } from './admin/admin.module';
 import { Participant } from './participant/entities/participant.entity';
 import { TournamentModule } from './tournament/tournament.module';
+import { PlayerTourModule } from './player_tour/player_tour.module';
+import { MatchModule } from './match/match.module';
 
 @Module({
   imports: [
@@ -24,6 +26,8 @@ import { TournamentModule } from './tournament/tournament.module';
     ParticipantModule,
     AdminModule,
     TournamentModule,
+    PlayerTourModule,
+    MatchModule,
   ],
   controllers: [],
   providers: [],

@@ -16,6 +16,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { Cookiegetter } from '../decorators/cookie_getter.decorator';
 import { creatorGuard } from '../guards/admin.creator.guard';
 import { AdminGuard } from '../guards/admin.guard';
+import { LoginAdminDto } from './dto/login-participant.dto';
 
 @ApiTags('admin')
 @Controller('admin')
@@ -31,10 +32,10 @@ export class AdminController {
 
   @Post('login')
   signIn(
-    @Body() createAdminDto: CreateAdminDto,
+    @Body() loginAdminDto: LoginAdminDto,
     @Res({ passthrough: true }) res: Response,
   ) {
-    return this.adminService.signIn(createAdminDto, res);
+    return this.adminService.signIn(loginAdminDto, res);
   }
 
   @UseGuards(AdminGuard)

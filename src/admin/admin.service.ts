@@ -7,6 +7,7 @@ import { Admin } from './entities/admin.entity';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import * as bcrypt from 'bcrypt';
 import { Response } from 'express';
+import { LoginAdminDto } from './dto/login-participant.dto';
 
 @Injectable()
 export class AdminService {
@@ -120,9 +121,9 @@ export class AdminService {
     }
   }
 
-  async signIn(createAuthDto: CreateAdminDto, res: Response) {
+  async signIn(createAuthDto: LoginAdminDto, res: Response) {
     const admin = await this.adminModel.findOne({
-      where: { phone: createAuthDto.phone },
+      where: { name: createAuthDto.name },
     });
     if (!admin) {
       throw new BadRequestException('User does not exist');

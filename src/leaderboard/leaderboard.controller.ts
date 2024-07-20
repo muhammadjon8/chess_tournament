@@ -6,12 +6,14 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
 import { LeaderboardService } from './leaderboard.service';
 import { CreateLeaderboardDto } from './dto/create-leaderboard.dto';
 import { UpdateLeaderboardDto } from './dto/update-leaderboard.dto';
 import { Leaderboard } from './entities/leaderboard.entity'; // Assuming you have this entity
+import { AdminGuard } from '../guards/admin.guard';
 
 @ApiTags('leaderboard') // Tag for Swagger documentation
 @Controller('leaderboard')
@@ -26,6 +28,7 @@ export class LeaderboardController {
     type: Leaderboard,
   })
   @ApiResponse({ status: 400, description: 'Bad request.' })
+  @UseGuards(AdminGuard)
   create(@Body() createLeaderboardDto: CreateLeaderboardDto) {
     return this.leaderboardService.create(createLeaderboardDto);
   }
@@ -51,11 +54,11 @@ export class LeaderboardController {
     type: Leaderboard,
   })
   @ApiResponse({ status: 404, description: 'Leaderboard entry not found.' })
+  @UseGuards(AdminGuard)
   findOne(@Param('id') id: string) {
     return this.leaderboardService.findOne(+id);
   }
 
-  @Patch(':id')
   @ApiOperation({ summary: 'Update a leaderboard entry' })
   @ApiParam({ name: 'id', type: 'number', description: 'Leaderboard entry ID' })
   @ApiResponse({
@@ -65,6 +68,8 @@ export class LeaderboardController {
   })
   @ApiResponse({ status: 400, description: 'Bad request.' })
   @ApiResponse({ status: 404, description: 'Leaderboard entry not found.' })
+  @UseGuards(AdminGuard)
+  @Patch(':id')
   update(
     @Param('id') id: string,
     @Body() updateLeaderboardDto: UpdateLeaderboardDto,
@@ -72,7 +77,6 @@ export class LeaderboardController {
     return this.leaderboardService.update(+id, updateLeaderboardDto);
   }
 
-  @Delete(':id')
   @ApiOperation({ summary: 'Delete a leaderboard entry' })
   @ApiParam({ name: 'id', type: 'number', description: 'Leaderboard entry ID' })
   @ApiResponse({
@@ -80,6 +84,8 @@ export class LeaderboardController {
     description: 'The leaderboard entry has been successfully deleted.',
   })
   @ApiResponse({ status: 404, description: 'Leaderboard entry not found.' })
+  @UseGuards(AdminGuard)
+  @Delete(':id')
   remove(@Param('id') id: string) {
     return this.leaderboardService.remove(+id);
   }

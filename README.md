@@ -50,8 +50,8 @@ $ npm run start:prod
 http://localhost:3000/api/docs
 ```
 
-## How this works
-# Participants
+# How this works
+## Participants
 First we need to register participants for the tournament
 ```
 http://localhost:3000/participant/register
@@ -61,7 +61,9 @@ If the participant already registered for the tournament, then the participant w
 ```
 http://localhost:3000/participant/login
 ```
-This 
+## Admin
+Creating tournaments and adding participants and updating participants details and their scores is the task that admins are reponsible for. That's why, admin first login to his account.
+
 
 ## Test
 

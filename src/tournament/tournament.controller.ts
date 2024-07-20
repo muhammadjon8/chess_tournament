@@ -35,7 +35,7 @@ export class TournamentController {
     description: 'The tournament has been successfully created.',
   })
   @ApiResponse({ status: 400, description: 'Bad Request.' })
-  // @UseGuards(AdminGuard)
+  @UseGuards(AdminGuard)
   @Post()
   create(@Body() createTournamentDto: CreateTournamentDto) {
     return this.tournamentService.create(createTournamentDto);

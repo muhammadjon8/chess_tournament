@@ -207,7 +207,7 @@ export class TournamentService {
           player1_id,
           player2_id,
           tournament_id: tournamentId,
-          round,
+          round: round,
         });
         await this.opponentRepo.save({
           player1_id,

@@ -2,11 +2,11 @@ POST http://localhost:3000/api/participant/register
 Content-Type: application/json
 
 {
-    "name": "Hamid",
+    "name": "Karim",
     "age": 12,
     "rating": 250,
     "country": "Uzb",
-    "phone": "+998950200030",
+    "phone": "+998950200051",
     "password": "qwerty"
 }
 ###

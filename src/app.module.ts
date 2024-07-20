@@ -14,6 +14,7 @@ import { PlayerTour } from './player_tour/entities/player_tour.entity';
 import { Opponent } from './opponents/entities/opponent.entity';
 import { Match } from './match/entities/match.entity';
 import { LeaderboardModule } from './leaderboard/leaderboard.module';
+import { Leaderboard } from './leaderboard/entities/leaderboard.entity';
 
 @Module({
   imports: [
@@ -25,7 +26,15 @@ import { LeaderboardModule } from './leaderboard/leaderboard.module';
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
-      entities: [Admin, Participant, Tournament, PlayerTour, Opponent, Match],
+      entities: [
+        Admin,
+        Participant,
+        Tournament,
+        PlayerTour,
+        Opponent,
+        Match,
+        Leaderboard,
+      ],
       synchronize: true,
       logging: false,
     }),

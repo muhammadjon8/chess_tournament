@@ -1,12 +1,12 @@
 GET http://localhost:3000/api/matches/
 ###
 
-PATCH  http://localhost:3000/api/matches/28
+PATCH  http://localhost:3000/api/matches/3
 Content-Type: application/json
 
 {
-    "player1_id": 20,
-    "player2_id": 14,
+    "player1_id": 15,
+    "player2_id": 13,
     "player1_score": 1,
     "player2_score": 0,
     "tournament_id": 3

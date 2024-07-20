@@ -8,10 +8,18 @@ import { Participant } from '../participant/entities/participant.entity';
 import { Match } from '../match/entities/match.entity';
 import { PlayerTour } from '../player_tour/entities/player_tour.entity';
 import { Opponent } from '../opponents/entities/opponent.entity';
+import { Leaderboard } from '../leaderboard/entities/leaderboard.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Tournament, Participant, Match, PlayerTour, Opponent]),
+    TypeOrmModule.forFeature([
+      Tournament,
+      Participant,
+      Match,
+      PlayerTour,
+      Opponent,
+      Leaderboard,
+    ]),
     JwtModule.register({}),
   ],
   controllers: [TournamentController],

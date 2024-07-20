@@ -3,5 +3,5 @@ Content-Type: application/json
 
 {
     "tournament_id": 3,
-    "player_id": 22
+    "player_id": 24
 }

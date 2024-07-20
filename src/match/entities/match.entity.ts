@@ -11,11 +11,11 @@ export class Match {
   @Column()
   player2_id: number;
 
-  @Column({ nullable: true })
-  player2_score: number;
-
-  @Column({ nullable: true })
+  @Column({ type: 'decimal', precision: 5, scale: 2, nullable: true })
   player1_score: number;
+
+  @Column({ type: 'decimal', precision: 5, scale: 2, nullable: true })
+  player2_score: number;
 
   @Column()
   tournament_id: number;

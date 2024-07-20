@@ -46,7 +46,8 @@ $ npm run start:prod
 ```
 
 ## Swagger Documentation
-```http://localhost:3000/api/docs
+```
+http://localhost:3000/api/docs
 ```
 
 ## How this works

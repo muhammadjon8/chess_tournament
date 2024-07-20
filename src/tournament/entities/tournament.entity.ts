@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { IsDate, IsObject, IsString, IsNotEmpty } from 'class-validator';
+import { IsDate, IsString, IsNotEmpty } from 'class-validator';
 
-@Entity()
+@Entity('tournament')
 export class Tournament {
   @PrimaryGeneratedColumn()
   id: number;
@@ -11,11 +11,9 @@ export class Tournament {
   @IsNotEmpty()
   name: string;
 
-  @Column()
-  @IsDate()
+  @Column({nullable: true})
   start_date: Date;
 
-  @Column()
-  @IsDate()
+  @Column({nullable: true})
   end_date: Date;
 }

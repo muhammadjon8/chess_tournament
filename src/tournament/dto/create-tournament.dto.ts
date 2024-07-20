@@ -1,7 +1,6 @@
-import { IsString, IsDate, IsObject, IsNotEmpty } from 'class-validator';
-import { Type } from 'class-transformer';
+import { IsString, IsNotEmpty, IsDateString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { PrimaryGeneratedColumn } from 'typeorm';
+import { Transform } from 'class-transformer';
 
 export class CreateTournamentDto {
   @ApiProperty({
@@ -14,18 +13,16 @@ export class CreateTournamentDto {
   name: string;
 
   @ApiProperty({
-    example: '2024-08-01T00:00:00.000Z',
+    example: '2024-08-01',
     description: 'The start date of the tournament',
   })
-  @IsDate()
-  @Type(() => Date)
+  @Transform(({ value }) => new Date(value))
   start_date: Date;
 
   @ApiProperty({
-    example: '2024-08-15T00:00:00.000Z',
+    example: '2024-08-15',
     description: 'The end date of the tournament',
   })
-  @IsDate()
-  @Type(() => Date)
+  @Transform(({ value }) => new Date(value))
   end_date: Date;
 }

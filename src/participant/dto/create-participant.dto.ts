@@ -37,12 +37,4 @@ export class CreateParticipantDto {
     description: "Participant's password",
   })
   password: string;
-
-  @ApiProperty({
-    example: 1,
-    description: "Participant's tournament id",
-  })
-  @IsNumber()
-  @IsNotEmpty()
-  tournament_id: number;
 }

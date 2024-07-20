@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Decimal128, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Match {
@@ -6,17 +6,20 @@ export class Match {
   id: number;
 
   @Column()
-  tour_number: number;
-
-  @Column()
   player1_id: number;
 
   @Column()
   player2_id: number;
 
-  @Column()
-  result: string;
+  @Column({ nullable: true })
+  player2_score: number;
+
+  @Column({ nullable: true })
+  player1_score: number;
 
   @Column()
   tournament_id: number;
+
+  @Column()
+  round: number;
 }

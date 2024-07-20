@@ -88,7 +88,8 @@ After all matches finished, admin will update the scores of the players which wa
 ## Starting rounds
 Hence updating the scores after round 0, to start the next round, admin request to this route.
 
-```http://localhost:3000/api/tournament/3/round/1
+```
+http://localhost:3000/api/tournament/3/round/1
 ```
 1 here stands for the round number
 
@@ -96,7 +97,8 @@ When clicked this route, the Leaderboard table will be updated automatically and
 
 ## Leaderboard
 To be up-to-date for the results, you could check the leaderboard where scores displayed in ascending order with high scores.
-```http://localhost:3000/api/leaderboard
+```
+http://localhost:3000/api/leaderboard
 ```
 
 ## Test

@@ -45,6 +45,23 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Swagger Documentation
+```http://localhost:3000/api/docs
+```
+
+## How this works
+# Participants
+First we need to register participants for the tournament
+```
+http://localhost:3000/participant/register
+```
+
+If the participant already registered for the tournament, then the participant will login to his account
+```
+http://localhost:3000/participant/login
+```
+This 
+
 ## Test
 
 ```bash

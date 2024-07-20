@@ -93,9 +93,16 @@ export class TournamentController {
   }
   @Post(':id/start')
   async startTournament(@Param('id') id: number) {
-    // const isIdExists = this.tournamentRepository.find({ where: { id: id } });
-    // if (!isIdExists) {
+    try {
+      const isIdExists = this.tournamentRepository.find({ where: { id: id } });
+      if (!isIdExists) {
+        throw new Error('Tournament not found');
+      }
       return await this.tournamentService.startTournament(id);
+    } catch (error) {
+      throw new Error(error);
+    }
+    // if (!isIdExists) {
     // }
     // return {
     //   error:
@@ -106,7 +113,7 @@ export class TournamentController {
   startRound(@Param('id') id: number, @Param('round') round: number) {
     // const isIdExists = this.matchRepo.find({ where: { round: round } });
     // if (!isIdExists) {
-      return this.tournamentService.startRound(id, round);
+    return this.tournamentService.startRound(id, round);
     // }
     // return {
     //   error: 'Round already started, if you want changes then delete the round',

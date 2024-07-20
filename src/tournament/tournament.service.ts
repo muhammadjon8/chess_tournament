@@ -90,7 +90,7 @@ export class TournamentService {
 
       if (participants.length < 4 || participants.length % 2 !== 0) {
         throw new Error(
-          'Not enough or unpairable participants to start the tournament',
+          'Not enough or unpairable participants to start the tournament. It\'s odd number of players here',
         );
       }
 
